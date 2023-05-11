@@ -1,7 +1,0 @@
-Descripcion
-Nombre: Playing in Dreams
-Playing in Dreams es un videojuego en el que te sumerges en tus sueños, experimentando situaciones y aventuras unicas. Puedes convertirte en un superheroe y salvar vidas, o volar por toda la ciudad. Tambien puedes explorar un planeta diferente y sentir que flotas, o enfrentarte a tus peores pesadillas, como estar cayendo de un avion o ser perseguido por zombies.
-
-Vistas: videojuego 2D en 3ra persona.
-
-Fisicas a implementar: movimiento rectilineo, caida libre y movimiento paravolico.
