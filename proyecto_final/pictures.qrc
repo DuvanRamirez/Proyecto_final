@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Imagenes/personaje.png</file>
+        <file>Imagenes/Nivel1.png</file>
+        <file>Imagenes/Nivel1rojo.png</file>
+        <file>Imagenes/corazon.png</file>
+        <file>Imagenes/caja.png</file>
+        <file>Imagenes/carro.png</file>
+        <file>Imagenes/tubo.png</file>
+        <file>Imagenes/gameover.jpg</file>
+        <file>Imagenes/bloque.png</file>
+        <file>Imagenes/bloquefinal.png</file>
+    </qresource>
+</RCC>

@@ -1,11 +1,12 @@
-#include "playing_in_dreams.h"
-
+#include "pantalla.h"
 #include <QApplication>
+
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    playing_in_dreams w;
+    MainWindow w;
     w.show();
+
     return a.exec();
 }
