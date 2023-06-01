@@ -10,5 +10,7 @@
         <file>Imagenes/gameover.jpg</file>
         <file>Imagenes/bloque.png</file>
         <file>Imagenes/bloquefinal.png</file>
+        <file>Imagenes/Nivel2.png</file>
+        <file>Imagenes/Nivel2rojo.png</file>
     </qresource>
 </RCC>

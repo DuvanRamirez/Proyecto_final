@@ -10,7 +10,6 @@
 #include "personaje.h"
 #include "bloque.h"
 #include "bloquefinal.h"
-#include "tubo.h"
 #include "caja.h"
 #include "carro.h"
 #include <iostream>
@@ -43,14 +42,7 @@ private:
     Ui::MainWindow *ui;
     QGraphicsScene* scene;
     personaje* boy;
-    tubo* Tubo;
-    tubo* Tubo2;
-    tubo* Tubo3;
-    tubo* Tubo4;
-    tubo* Tubo5;
-    tubo* Tubo6;
-    tubo* Tubo7;
-    tubo* Tubo8;
+
     Bloque* bloque;
     Bloque* bloque2;
     Bloque* bloque3;
@@ -83,6 +75,7 @@ private:
     int puntuacion;
     int vmundo=8;
     int exit=1;
+    int nivel=2;
 
     bool moverIx1;
     bool moverDx1;

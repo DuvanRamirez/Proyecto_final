@@ -16,8 +16,7 @@ SOURCES += \
     main.cpp \
     pantalla.cpp \
     personaje.cpp \
-    puntos.cpp \
-    tubo.cpp
+    puntos.cpp
 
 HEADERS += \
     bloque.h \
@@ -26,8 +25,7 @@ HEADERS += \
     carro.h \
     pantalla.h \
     personaje.h \
-    puntos.h \
-    tubo.h
+    puntos.h
 
 FORMS += \
     pantalla.ui
