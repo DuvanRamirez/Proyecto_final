@@ -1,16 +1,19 @@
-#ifndef PERSONAJE_H
-#define PERSONAJE_H
+#ifndef PERSONAJE2_H
+#define PERSONAJE2_H
+
+
 #include <QObject>
 #include <QGraphicsItem>
 #include <QTimer>
 #include <QPixmap>
 #include <QPainter>
 
-class personaje : public QObject, public QGraphicsItem
+
+class personaje2 : public QObject, public QGraphicsItem
 {
     Q_OBJECT
 public:
-    explicit personaje(QObject *parent = nullptr);
+    explicit personaje2(QObject *parent = nullptr);
 
     QTimer *timer;
     QPixmap *pixmap;
@@ -23,10 +26,9 @@ public:
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 
-
 signals:
 
 public slots:
     void Actualizacion();
 };
-#endif // PERSONAJE_H
+#endif // PERSONAJE2_H

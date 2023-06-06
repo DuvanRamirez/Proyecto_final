@@ -16,3 +16,4 @@ void puntos::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
     pixmap.load(":/Imagenes/corazon.png");
     painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
 }
+

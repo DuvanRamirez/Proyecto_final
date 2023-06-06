@@ -10,21 +10,29 @@ CONFIG += c++11
 
 SOURCES += \
     bloque.cpp \
-    bloquefinal.cpp \
+    bloquemenu.cpp \
+    botones.cpp \
     caja.cpp \
     carro.cpp \
+    corazon.cpp \
+    fantasma.cpp \
     main.cpp \
     pantalla.cpp \
     personaje.cpp \
+    personaje2.cpp \
     puntos.cpp
 
 HEADERS += \
     bloque.h \
-    bloquefinal.h \
+    bloquemenu.h \
+    botones.h \
     caja.h \
     carro.h \
+    corazon.h \
+    fantasma.h \
     pantalla.h \
     personaje.h \
+    personaje2.h \
     puntos.h
 
 FORMS += \

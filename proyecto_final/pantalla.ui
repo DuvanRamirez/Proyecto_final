@@ -24,14 +24,49 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLCDNumber" name="lcdNumber">
+   <widget class="QLCDNumber" name="temporizador">
     <property name="geometry">
      <rect>
-      <x>840</x>
+      <x>200</x>
       <y>10</y>
-      <width>121</width>
+      <width>251</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLCDNumber {
+    border: none;
+}</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="temporizador2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>10</y>
+      <width>151</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLCDNumber {
+    border: none;
+}</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="contadorpuntos">
+    <property name="geometry">
+     <rect>
+      <x>-20</x>
+      <y>10</y>
+      <width>61</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLCDNumber {
+    border: none;
+}</string>
     </property>
    </widget>
   </widget>

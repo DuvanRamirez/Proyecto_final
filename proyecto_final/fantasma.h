@@ -1,16 +1,16 @@
-#ifndef PERSONAJE_H
-#define PERSONAJE_H
+#ifndef FANTASMA_H
+#define FANTASMA_H
 #include <QObject>
 #include <QGraphicsItem>
 #include <QTimer>
 #include <QPixmap>
 #include <QPainter>
 
-class personaje : public QObject, public QGraphicsItem
+class Fantasma : public QObject, public QGraphicsItem
 {
     Q_OBJECT
 public:
-    explicit personaje(QObject *parent = nullptr);
+    explicit Fantasma(QObject *parent = nullptr);
 
     QTimer *timer;
     QPixmap *pixmap;
@@ -29,4 +29,4 @@ signals:
 public slots:
     void Actualizacion();
 };
-#endif // PERSONAJE_H
+#endif // FANTASMA_H

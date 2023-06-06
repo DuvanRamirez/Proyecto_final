@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>Imagenes/personaje.png</file>
         <file>Imagenes/Nivel1.png</file>
         <file>Imagenes/Nivel1rojo.png</file>
         <file>Imagenes/corazon.png</file>
@@ -12,5 +11,12 @@
         <file>Imagenes/bloquefinal.png</file>
         <file>Imagenes/Nivel2.png</file>
         <file>Imagenes/Nivel2rojo.png</file>
+        <file>Imagenes/corazon relleno.png</file>
+        <file>Imagenes/Menu.png</file>
+        <file>Imagenes/level 1.png</file>
+        <file>Imagenes/personaje1.png</file>
+        <file>Imagenes/win.png</file>
+        <file>Imagenes/personaje2.png</file>
+        <file>Imagenes/fantasma.png</file>
     </qresource>
 </RCC>
