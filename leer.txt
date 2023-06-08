@@ -1,0 +1,1 @@
+En pantalla.h cambiar nivel=0 por 1 o 2,segun en nivel a ejecutar 

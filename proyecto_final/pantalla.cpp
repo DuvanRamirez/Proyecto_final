@@ -29,6 +29,7 @@ MainWindow::MainWindow(QWidget *parent)
     moverDx1=false;
     moverUy1=false;
     moverDy1=false;
+    moverXY=false;
     //menu
     if(nivel==0){
         this->setGeometry(0,0,764,434);
@@ -41,6 +42,7 @@ MainWindow::MainWindow(QWidget *parent)
 
         connect(tiempo,SIGNAL(timeout()),this,SLOT(animar()));
         connect(this,SIGNAL(aviso3(int)),this,SLOT(seleccion()));
+        connect(this,SIGNAL(aviso(int)),this,SLOT(seleccion2()));
 
 
         tiempo->start(30);
@@ -55,19 +57,21 @@ MainWindow::MainWindow(QWidget *parent)
         //personaje
         boy2 = new personaje2;
         scene->addItem(boy2);
+
         boy2->setPos(378, 220);
 
 
 
     }
     //nivel 1
-    else if(nivel==1){
+    if(nivel==1){
     this->setGeometry(450,20,398,5548);
     scene=new QGraphicsScene(450,20,398,5548);
     ui->graphicsView->setScene(scene);
 
     ui->graphicsView->setFixedSize(398,5548);
     ui->graphicsView->setBackgroundBrush(QBrush(QImage(":/Imagenes/Nivel1.png")));
+
 
     tiempo=new QTimer();
     Temporizador=new QTimer();
@@ -81,6 +85,7 @@ MainWindow::MainWindow(QWidget *parent)
     tiempo->start(30);
     Temporizador->start(1000);
     Temporizador2->start(1000);
+
 
     //personaje
     boy = new personaje;
@@ -171,7 +176,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     }
     //nivel 2
-    else if(nivel==2){
+    if(nivel==2){
     this->setGeometry(0,0,1000,327);
     scene=new QGraphicsScene(0,0,7091,327);
     ui->graphicsView->setScene(scene);
@@ -181,15 +186,18 @@ MainWindow::MainWindow(QWidget *parent)
     tiempo=new QTimer();
     Temporizador=new QTimer();
     Temporizador2=new QTimer();
+    Timertecla=new QTimer();
     connect(tiempo,SIGNAL(timeout()),this,SLOT(animar()));
     connect(this,SIGNAL(aviso(int)),this,SLOT(reducciontime()));
     connect(this,SIGNAL(aviso2(int)),this,SLOT(muerte()));
     connect(Temporizador,SIGNAL(timeout()),this,SLOT(temporizador()));
     connect(Temporizador2,SIGNAL(timeout()),this,SLOT(temporizador2()));
+    connect(Timertecla,SIGNAL(timeout()),this,SLOT(caidadelsalto()));
 
     tiempo->start(30);
     Temporizador->start(1000);
     Temporizador2->start(1000);
+
 
     //personaje
     boy2 = new personaje2;
@@ -284,11 +292,11 @@ void MainWindow::animar()
     }
     if(boy2->collidesWithItem(boton1))emit aviso3(9);
 
-    else if(boy2->collidesWithItem(boton2))emit aviso3(9);
+    else if(boy2->collidesWithItem(boton2))emit aviso(9);
 
     }
     //nivel 1
-    else if(nivel==1){
+    if(nivel==1){
     QImage image(":/Imagenes/Nivel1rojo.png");
     //animacion movimiento del mundo
     if(exit==1)vmundo+=8;
@@ -444,7 +452,7 @@ void MainWindow::animar()
     }
     }
     //nivel 2
-    else if(nivel==2){
+    if(nivel==2){
     QImage image(":/Imagenes/Nivel2rojo.png");
     //animacion movimiento del mundo
     if(exit==1)vmundo+=7;
@@ -502,6 +510,7 @@ void MainWindow::animar()
 
         else if((r==0 && g==0 && b==0))emit aviso2(9);
     }
+
 
     //colision con fantasma
     if(boy2->collidesWithItem(fantasma))emit aviso2(9);
@@ -607,9 +616,11 @@ void MainWindow::keyPressEvent(QKeyEvent *ev)
 
     else if (ev->key() == Qt::Key_Space)
     {
+        moverXY=true;
         if(nivel==2){
             boy2->setPos(boy2->x(),boy2->y()-40);
             boyPosY-=40;
+            Timertecla->start(300);
         }
     }
 
@@ -635,14 +646,19 @@ void MainWindow::keyReleaseEvent(QKeyEvent *ev)
     }
     else if (ev->key() == Qt::Key_Space)
     {
-        if(nivel==2){
-            boy2->setPos(boy2->x(),boy2->y()+40);
-            boyPosY+=40;
-        }
+        moverXY=false;
     }
 
 }
 
+
+
+
+void MainWindow::caidadelsalto(){
+    Timertecla->stop();
+    boy2->setPos(boy2->x(),boy2->y()+40);
+    boyPosY+=40;
+}
 
 void MainWindow::reducciontime()
 {
@@ -653,14 +669,14 @@ void MainWindow::reducciontime()
         if(puntosparaganar==6){
             ui->graphicsView->setBackgroundBrush(QBrush(QImage(":/Imagenes/win.png")));
             exit=0;
-            nivel=0;
+            nivel=3;
         }
     }
     if(nivel==2){
         if(puntosparaganar==8){
             ui->graphicsView->setBackgroundBrush(QBrush(QImage(":/Imagenes/win.png")));
             exit=0;
-            nivel=0;
+            nivel=3;
         }
     }
 }
@@ -671,41 +687,45 @@ void MainWindow::muerte()
     if(nivel==1){if(boy->isVisible())boy->hide();}
     else if(nivel==2){if(boy2->isVisible())boy2->hide();}
     exit=0;
-    nivel=0;
+    nivel=3;
 }
 void MainWindow::seleccion(){
+
     nivel=1;
+}
+void MainWindow::seleccion2(){
+    nivel=2;
 }
 void MainWindow::temporizador(){
     if(nivel==1){
         ui->temporizador->display(Ntemporizador);
-        if(Ntemporizador>0 && nivel!=0)Ntemporizador--;
+        if(Ntemporizador>0 && nivel!=3)Ntemporizador--;
         else if(Ntemporizador==0){
             Ntemporizador=0;
             ui->graphicsView->setBackgroundBrush(QBrush(QImage(":/Imagenes/gameover.jpg")));
             exit=0;
-            nivel=0;
+            nivel=3;
         }
     }
     else if(nivel==2){
         ui->temporizador->display(Ntemporizador3);
-        if(Ntemporizador3>0 && nivel!=0)Ntemporizador3--;
+        if(Ntemporizador3>0 && nivel!=3)Ntemporizador3--;
         else if(Ntemporizador3==0){
             Ntemporizador3=0;
             ui->graphicsView->setBackgroundBrush(QBrush(QImage(":/Imagenes/gameover.jpg")));
             exit=0;
-            nivel=0;
+            nivel=3;
         }
     }
 }
 void MainWindow::temporizador2(){
     ui->temporizador2->display(Ntemporizador2);
-    if(Ntemporizador2>0 && nivel!=0)Ntemporizador2--;
+    if(Ntemporizador2>0 && nivel!=3)Ntemporizador2--;
     else if(Ntemporizador2==0){
         Ntemporizador2=0;
         ui->graphicsView->setBackgroundBrush(QBrush(QImage(":/Imagenes/gameover.jpg")));
         exit=0;
-        nivel=0;
+        nivel=3;
     }
 }
 

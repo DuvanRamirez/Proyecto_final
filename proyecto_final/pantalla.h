@@ -22,6 +22,7 @@
 #include <QGraphicsView>
 #include <QPixmap>
 
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -43,10 +44,12 @@ signals:
     void aviso3(int);
 
 public slots:
+    void caidadelsalto();
     void animar();
     void reducciontime();
     void muerte();
     void seleccion();
+    void seleccion2();
     void temporizador();
     void temporizador2();
 
@@ -91,12 +94,12 @@ private:
     QTimer *tiempo;
     QTimer *Temporizador;
     QTimer *Temporizador2;
-    QTimer* releaseTimer;
+    QTimer* Timertecla;
 
     int marcador1=1;
     int vmundo=8;
     int exit=1;
-    int nivel=2;
+    int nivel=0;
     int puntosparaganar=0;
     int Ntemporizador=25;
     int Ntemporizador2=5;
@@ -106,6 +109,7 @@ private:
     bool moverDx1;
     bool moverUy1;
     bool moverDy1;
+    bool moverXY;
 
 
     void keyPressEvent(QKeyEvent *ev);
