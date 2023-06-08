@@ -653,14 +653,14 @@ void MainWindow::reducciontime()
         if(puntosparaganar==6){
             ui->graphicsView->setBackgroundBrush(QBrush(QImage(":/Imagenes/win.png")));
             exit=0;
-            nivel=0;
+            nivel=3;
         }
     }
     if(nivel==2){
         if(puntosparaganar==8){
             ui->graphicsView->setBackgroundBrush(QBrush(QImage(":/Imagenes/win.png")));
             exit=0;
-            nivel=0;
+            nivel=3;
         }
     }
 }
@@ -671,7 +671,7 @@ void MainWindow::muerte()
     if(nivel==1){if(boy->isVisible())boy->hide();}
     else if(nivel==2){if(boy2->isVisible())boy2->hide();}
     exit=0;
-    nivel=0;
+    nivel=3;
 }
 void MainWindow::seleccion(){
     nivel=1;
@@ -684,28 +684,28 @@ void MainWindow::temporizador(){
             Ntemporizador=0;
             ui->graphicsView->setBackgroundBrush(QBrush(QImage(":/Imagenes/gameover.jpg")));
             exit=0;
-            nivel=0;
+            nivel=3;
         }
     }
     else if(nivel==2){
         ui->temporizador->display(Ntemporizador3);
-        if(Ntemporizador3>0 && nivel!=0)Ntemporizador3--;
+        if(Ntemporizador3>0 && nivel!=3)Ntemporizador3--;
         else if(Ntemporizador3==0){
             Ntemporizador3=0;
             ui->graphicsView->setBackgroundBrush(QBrush(QImage(":/Imagenes/gameover.jpg")));
             exit=0;
-            nivel=0;
+            nivel=3;
         }
     }
 }
 void MainWindow::temporizador2(){
     ui->temporizador2->display(Ntemporizador2);
-    if(Ntemporizador2>0 && nivel!=0)Ntemporizador2--;
+    if(Ntemporizador2>0 && nivel!=3)Ntemporizador2--;
     else if(Ntemporizador2==0){
         Ntemporizador2=0;
         ui->graphicsView->setBackgroundBrush(QBrush(QImage(":/Imagenes/gameover.jpg")));
         exit=0;
-        nivel=0;
+        nivel=3;
     }
 }
 
